@@ -1,6 +1,6 @@
 #lang rosette
 
-(require "symmetry.rkt" "table.rkt" "equal.rkt" "syntax.rkt" "sql.rkt" "evaluator.rkt")
+(require "symmetry.rkt" "table.rkt" "equal.rkt" "syntax.rkt" "sql.rkt" "evaluator.rkt" "query-equal.rkt")
 (require json)
 
 (provide gen-sym-schema ;; generate a symbolic table based on schema
@@ -16,6 +16,9 @@
          assert-table-col-distinct ;; assert that all values in a column is distinct from each other
          same ;; assert two queries are the same 
          neq ;; assert two queries are not the same
+         query-equal? ;; direct structural comparison of queries
+         val-equal? ;; direct structural comparison of values
+         filter-equal? ;; direct structural comparison of filters
          ) 
 
 ;;;;; Symbolic utilities
